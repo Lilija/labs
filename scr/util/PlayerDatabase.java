@@ -9,7 +9,6 @@ package util;
 
 import soccer.Player;
 import soccer.Team;
-import util.CrTeamsException;
 
 import java.util.ArrayList;
 

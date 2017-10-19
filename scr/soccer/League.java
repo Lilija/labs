@@ -1,15 +1,14 @@
 package soccer;
-import util.CrTeamsException;
-import util.ProjectSettings;
-import util.GameUtils;
-import util.PlayerDatabase;
 
-import java.sql.Array;
+import util.CrTeamsException;
+import util.PlayerDatabase;
+import util.ProjectSettings;
+
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 public class League {
 
@@ -25,13 +24,13 @@ public void getBestTeams (Team[] teams) {
 }
 
     public void getBestPlayers (Team[] teams) {
-        ArrayList<Player> thePlayers = new ArrayList();
+        List<Player> thePlayers = new ArrayList();
         for (Team item:teams) {
             thePlayers.addAll(Arrays.asList(item.playerArray));
 
         }
         Collections.sort(thePlayers,
-                (p1,p2)->Double.valueOf(((Player)p2).getNumOfPoints()).compareTo(Double.valueOf(((Player)p1).getNumOfPoints())));
+                (p1,p2)->Double.valueOf(p2.getNumOfPoints()).compareTo(Double.valueOf(p1.getNumOfPoints())));
 
         for (Player item: thePlayers) {
             System.out.println(item.toString());
